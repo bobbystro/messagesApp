@@ -1,0 +1,39 @@
+<div class="content">
+  <div class="container-fluid">
+    <div class="row align-items-start">
+      <div class="col-6">
+        <h1>Send your quote</h1>
+        <form [formGroup]="addQuoteForm" method="post">
+          <div class="form-group">
+            <label for="author_name">Author name</label>
+            <input id="author_name" class="form-control" type="text" placeholder="Enter your name"
+                   [(ngModel)]="addQuote.authorName" formControlName="authorName" required="required">
+            <small *ngIf="authorNameForm.invalid && (authorNameForm.touched || authorNameForm.dirty)"
+                   class="form-text text-danger">
+              <span *ngIf="authorNameForm.errors['required']">This field can't be empty</span>
+              <span *ngIf="authorNameForm.errors['minlength']">This field must contain more than 3 letters</span>
+            </small>
+          </div>
+          <div class="form-group">
+            <label for="quoute_source">Source</label>
+            <input id="quoute_source" class="form-control" type="text" placeholder="Enter source of quote">
+          </div>
+          <div class="form-group">
+            <label for="quoute_text"></label>
+            <textarea id="quoute_text" class="form-control" rows="5" placeholder="Quote..."
+                      [(ngModel)]="addQuote.quoteText" formControlName="quoteText" required="required"></textarea>
+            <small *ngIf="quoteTextForm.invalid && (quoteTextForm.touched || quoteTextForm.dirty)"
+                   class="form-text text-danger">
+              <span *ngIf="quoteTextForm.errors['required']">This field can't be empty</span>
+            </small>
+          </div>
+          <button [disabled]="addQuoteForm.invalid" type="submit" class="btn btn-primary pull-right"
+                  (click)="showSuccess()">Submit
+          </button>
+          <p *ngIf="successMessage">Successful send quote</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

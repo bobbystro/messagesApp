@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-messages',
-  templateUrl: './messages.component.html',
-  styleUrls: ['./messages.component.scss']
+  templateUrl: './quotes.component.html',
+  styleUrls: ['./quotes.component.scss']
 })
-export class MessagesComponent implements OnInit {
+export class QuotesComponent implements OnInit {
 
   constructor() { }
 
